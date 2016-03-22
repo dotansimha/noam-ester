@@ -28,18 +28,24 @@
 <!-- endbower -->
 <!-- endbuild -->
 
+<script src="/bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+<script src="/bower_components/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
+
+
 <div class="container container-table" style="height: 4000px">
   <div class="row vertical-center-row">
     <div class="text-center col-md-12">
       <div id="scene_1">
         <div id="start_spacer"></div>
-        <div id="swing_trigger"></div>
-        <div id="girl_container">
+        <div id="swing_trigger1"></div>
+        <div id="girl_container" style="margin: 0 !important;">
           <div id="scene_1_background">
-            <img src="images/swing.png" style="max-width: 200px; position: absolute; left: 200px;">
+            <img src="images/left_swing_pole.png" id="left_swing_pole">
+            <img id="girl" src="images/girl_on_swing.png">
+            <img src="images/swing.png" id="swing_bg">
           </div>
-          <img id="girl" src="images/girl_on_swing.png" style="max-width: 200px;">
         </div>
+        <div id="swing_trigger2"></div>
       </div>
     </div>
   </div>
