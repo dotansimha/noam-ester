@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NoamDoll</title>
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+</head>
+<body>
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<script src="/bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
+<script src="/bower_components/gsap/src/uncompressed/TweenMax.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<div class="container container-table" style="height: 4000px">
+  <div class="row vertical-center-row">
+    <div class="text-center col-md-12">
+      <div id="scene_1">
+        <div id="start_spacer"></div>
+        <div id="swing_trigger"></div>
+        <div id="girl_container">
+          <div id="scene_1_background">
+            <img src="images/swing.png" style="max-width: 200px; position: absolute; left: 200px;">
+          </div>
+          <img id="girl" src="images/girl_on_swing.png" style="max-width: 200px;">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- build:js scripts/main.js -->
+<script src="scripts/main.js"></script>
+<!-- endbuild -->
+</body>
+</html>
