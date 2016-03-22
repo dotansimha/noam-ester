@@ -25,7 +25,6 @@ html, body, .container-table {
 }
 
 #girl {
-    max-width: 200px;
     position: absolute;
     left: 450px;
 }
@@ -42,4 +41,37 @@ html, body, .container-table {
     width: 7px;
     position: absolute;
     left: 385px;
+}
+
+#girl_on_swing {
+    max-width: 200px;
+    position: absolute;
+}
+
+#left-swing-handle {
+    width: 7px;
+    height: 300px;
+    background: #e3b988;
+    position: absolute;
+    transform: rotate(-30deg);
+    left: 50px;
+}
+
+#swing_base {
+    background-color: rgb( 156, 123, 83 );
+    position: absolute;
+    left: 102px;
+    top: 270px;
+    width: 92px;
+    height: 27px;
+    border-radius: 9px;
+}
+
+#right-swing-handle {
+    width: 7px;
+    height: 300px;
+    background: #e3b988;
+    position: absolute;
+    transform: rotate(-30deg);
+    left: 92px;
 }
