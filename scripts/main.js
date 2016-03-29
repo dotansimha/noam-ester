@@ -986,7 +986,7 @@ var controller = new ScrollMagic.Controller();
 
 //TweenLite.defaultOverwrite = false;
 
-new ScrollMagic.Scene({ triggerElement: "#swing_trigger1", duration: 4000, triggerHook: 0 }).setTween(new TimelineMax().insert(TweenMax.to("#girlOnly", 1, {
+new ScrollMagic.Scene({ triggerElement: "#trigger", duration: 4000, triggerHook: 0 }).setTween(new TimelineMax().insert(TweenMax.to("#girlOnly", 1, {
   rotation: 50,
   transformOrigin: "left top",
   repeat: 7,
@@ -1000,16 +1000,16 @@ new ScrollMagic.Scene({ triggerElement: "#swing_trigger1", duration: 4000, trigg
   ease: Linear.easeNone
 }))).setPin("#scene_1").addIndicators({ name: "swing" }).addTo(controller);
 
-new ScrollMagic.Scene({ triggerElement: "#swing_trigger2", duration: 1000, offset: 4000, triggerHook: 0 }).setTween(new TimelineMax().insert(TweenMax.to("#girlOnly", 1, { rotation: 390, transformOrigin: "left top" })).insert(TweenMax.to("#swingOnly", 1, { rotation: 390, transformOrigin: "left top" }))).setPin("#scene_1").addIndicators({ name: "roll" }).addTo(controller);
+new ScrollMagic.Scene({ triggerElement: "#trigger", duration: 1000, offset: 4000, triggerHook: 0 }).setTween(new TimelineMax().insert(TweenMax.to("#girlOnly", 1, { rotation: 390, transformOrigin: "left top" })).insert(TweenMax.to("#swingOnly", 1, { rotation: 390, transformOrigin: "left top" }))).setPin("#scene_1").addIndicators({ name: "roll" }).addTo(controller);
 
-new ScrollMagic.Scene({ triggerElement: "#swing_trigger3", duration: 2000, offset: 5000, triggerHook: 0 }).setTween(new TimelineMax().insert(TweenMax.to("#girl_on_swing", 1, { rotation: -150, transformOrigin: "center center" })).insert(TweenMax.to("#girlOnly", 1, { x: -600, y: 200 }))).setPin("#scene_1").addIndicators({ name: "fly" }).addTo(controller);
+new ScrollMagic.Scene({ triggerElement: "#trigger", duration: 2000, offset: 5000, triggerHook: 0 }).setTween(new TimelineMax().insert(TweenMax.to("#girl_on_swing", 1, { rotation: -150, transformOrigin: "center center" })).insert(TweenMax.to("#girlOnly", 1, { x: -600, y: 200 }))).setPin("#scene_1").addIndicators({ name: "fly" }).addTo(controller);
 
-new ScrollMagic.Scene({ triggerElement: "#swing_trigger4", duration: 400, offset: 7000, triggerHook: 0 }).setTween(new TimelineMax().insert(TweenMax.to("#girlOnly", 1, { marginLeft: -50, marginTop: 80 }))).on("update", function (e) {
+new ScrollMagic.Scene({ triggerElement: "#trigger", duration: 400, offset: 7000, triggerHook: 0 }).setTween(new TimelineMax().insert(TweenMax.to("#girlOnly", 1, { marginLeft: -50, marginTop: 80 }))).on("update", function (e) {
   if (e.scrollPos < 5000) {
     $("#girl_on_swing").attr('src', 'images/girl_on_swing.png');
-  } else if (e.scrollPos > 5000 && e.scrollPos < 6000) {
+  } else if (e.scrollPos > 5000 && e.scrollPos <= 6000) {
     $("#girl_on_swing").attr('src', 'images/girl_on_swing2.png');
-  } else if (e.scrollPos > 6000 && e.scrollPos < 7400) {
+  } else if (e.scrollPos > 6000 && e.scrollPos <= 7400) {
     $("#girl_on_swing").attr('src', 'images/girl_on_swing3.png');
   } else if (e.scrollPos > 7400) {
     $("#girl_on_swing").attr('src', 'images/girl_on_ground.png');
@@ -1017,4 +1017,70 @@ new ScrollMagic.Scene({ triggerElement: "#swing_trigger4", duration: 400, offset
     $("#girl_on_swing").attr('src', 'images/girl_on_swing.png');
   }
 }).setPin("#scene_1").addIndicators({ name: "fall" }).addTo(controller);
+
+new ScrollMagic.Scene({ triggerElement: "#trigger", duration: 500, offset: 7400, triggerHook: 0 }).setPin("#scene_1").addIndicators({ name: "fly" }).addTo(controller);
 //# sourceMappingURL=scene1.js.map
+
+"use strict";
+
+new ScrollMagic.Scene({ triggerElement: "#trigger", duration: 300, offset: 7900, triggerHook: 0 }).setTween(new TimelineMax().insert(TweenMax.to("#ghost", 1, {
+  opacity: 1,
+  x: 100,
+  rotation: 10
+}))).setPin("#scene_2").addIndicators({ name: "ghost1" }).addTo(controller);
+
+new ScrollMagic.Scene({ triggerElement: "#trigger", duration: 400, offset: 8200, triggerHook: 0 }).setTween(new TimelineMax().add(TweenMax.to("#ghost_image", 1, {
+  rotation: -20,
+  x: 100,
+  zoom: 1.1
+})).add(TweenMax.to("#ghost_image", 1, {
+  rotation: 30,
+  zoom: 1.2
+})).add(TweenMax.to("#ghost_image", 1, {
+  rotation: 0,
+  x: 130,
+  zoom: 1.3
+}))).setPin("#scene_2").addIndicators({ name: "ghost2" }).addTo(controller);
+
+new ScrollMagic.Scene({ triggerElement: "#trigger", duration: 300, offset: 8600, triggerHook: 0 }).setTween(new TimelineMax().insert(TweenMax.to("#ghost", 1, {
+  opacity: 0
+})).insert(TweenMax.to("#doll", 1, {
+  css: { className: '+=glow' },
+  immediateRender: false
+}))).addIndicators({ name: "ghost3" }).addTo(controller);
+
+var dollDragged = false;
+
+$(window).scroll(function () {
+  if (!dollDragged) {
+    if ($(window).scrollTop() >= 8940) {
+      $(window).scrollTop(8940);
+    }
+  } else {
+    $("#doll").removeClass("glow");
+  }
+});
+
+new ScrollMagic.Scene({ triggerElement: "#trigger", duration: 1000, offset: 11500, triggerHook: 0 }).setPin("#scene_3").on("update", function (e) {
+  $("#doll").draggable({
+    start: function start() {
+      $("#doll").css({
+        width: '230px',
+        height: '298px',
+        transform: 'rotate(-10deg)'
+      });
+      $("#doll").removeClass("glow");
+    },
+    cursorAt: { top: 150, left: 150 }
+  });
+
+  $("#bag_bg").droppable({
+    accept: "#doll",
+    activeClass: "on-drag",
+    drop: function drop() {
+      console.log('done');
+      dollDragged = true;
+    }
+  });
+}).addIndicators({ name: "stand" }).addTo(controller);
+//# sourceMappingURL=scene2.js.map
