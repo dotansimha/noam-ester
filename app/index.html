@@ -30,9 +30,10 @@
 
 <div id="trigger"></div>
 
-<div class="container container-table" style="height: 40000px">
+<div class="container container-table" >
   <div class="row vertical-center-row">
     <div class="text-center col-md-12 subcon">
+
       <div id="scene_1">
         <div id="girl_container">
           <div id="scene1_bg">
@@ -66,19 +67,50 @@
         <img src="images/lamp.png" id="lamp">
         <img src="images/doll.png" id="doll">
         <img src="images/phone.png" id="phone">
+        <div id="bag_container">
+          <img src="images/bag_bg.png" id="bag_bg">
+        </div>
+        <img src="images/bag_fe.png" id="bag_fe">
         <div id="stand">
         </div>
+
+        <div id="room">
+          <div id="outside">
+            <div id="sun"></div>
+          </div>
+          <img src="images/bed.png" id="bed">
+          <img src="images/drawer.png" id="drawer">
+        </div>
+        <div id="overlay">
+        </div>
+      </div>
+
+      <div id="scene_4">
+        <div id="ghosts">
+          <img src="images/splash.png" id="g1">
+          <img src="images/splash.png" id="g2">
+          <img src="images/splash.png" id="g3">
+        </div>
+      </div>
+
+      <div id="video">
+        <video width="100%" id="vid">
+          <source src="images/end.webm" type="video/webm">
+        </video>
       </div>
 
     </div>
   </div>
 </div>
 
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
 <!-- build:js scripts/main.js -->
 <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
 <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
 <script src="scripts/scene1.js"></script>
 <script src="scripts/scene2.js"></script>
+<script src="scripts/scene4.js"></script>
 <!-- endbuild -->
 </body>
 </html>

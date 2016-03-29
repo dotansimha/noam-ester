@@ -4,7 +4,7 @@
 html, body, .container-table {
   height: 100%;
   width: 100%;
-  background: #faae7d;
+  background: #e7ac7e;
 
   .container, .subcon {
     margin: 0 !important;
@@ -24,11 +24,48 @@ html, body, .container-table {
   }
 }
 
+#video {
+  position: relative;
+  top: 2000px;
+  z-index: 9999999999;
+  background: black;
+}
+
+#scene_4 {
+  background: black;
+  width: 100%;
+  position: relative;
+  top: 1000px;
+  z-index: 99999;
+
+  #g1 {
+    opacity: 0;
+    position: absolute;
+    left: 100px;
+    top: 400px;
+  }
+
+  #g2 {
+    opacity: 0;
+    position: absolute;
+    top: 100px;
+    max-width: 150px;
+  }
+
+  #g3 {
+    opacity: 0;
+    position: absolute;
+    left: 500px;
+    max-width: 150px;
+  }
+}
+
 #scene_2 {
-  background: #faae7d;
+  background: #e7ac7e;
   width: 100%;
   position: relative;
   top: 400px;
+  z-index: 100;
 
   #ghost {
     position: absolute;
@@ -36,13 +73,65 @@ html, body, .container-table {
     opacity: 0;
     zoom: 0.5;
     z-index: 900;
+    pointer-events: none;
   }
 }
 
 #scene_3 {
   top: @standOffset;
-  height: 100%;
+  height: 400px;
   position: relative;
+  z-index: 200;
+
+  #overlay {
+    background: black;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 600px;
+    height: 2000px;
+    z-index: 99999;
+    opacity: 0;
+  }
+
+  #room {
+    background: #F9E4C5;
+    height: 2000px;
+    width: 100%;
+    position: relative;
+    top: 600px;
+
+    #drawer {
+      position: absolute;
+      left: 0;
+      top: 270px;
+      max-width: 300px;
+    }
+
+    #outside {
+      background: #F9DEA2;
+      width: 400px;
+      left: 904px;
+      top: 123px;
+      height: 300px;
+      position: absolute;
+
+      #sun {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        background: #EABF7A;
+        left: 300px;
+        position: absolute;
+      }
+    }
+
+    #bed {
+      position: absolute;
+      left: 800px;
+      top: 100px;
+    }
+  }
 
   #stand {
     width: 100%;
@@ -59,34 +148,39 @@ html, body, .container-table {
     left: 900px;
   }
 
-  #box1, #box2, #box3 {
-    border: 3px solid #A9A9A9;
-    border-radius: 10px;
-    float: left;
-    height: 100px;
-    line-height: 90px;
-    margin: 0px 0px 30px 50px;
-    text-align: center;
-    width: 100px;
+  #bag_container {
     position: relative;
-    top: 0px;
+    left: 100px;
+    bottom: -100px;
+    z-index: 1000;
+    max-width: 250px;
 
-    /*
-    This cubic-bezier ease should approximate the jquery default 'swing' ease.
-    Courtesy of http://stackoverflow.com/questions/9245030/looking-for-a-swing-like-easing-expressible-both-with-jquery-and-css3
-    */
-    -webkit-transition: all .4s cubic-bezier(.02, .01, .47, 1);
-    -moz-transition: all .4s cubic-bezier(.02, .01, .47, 1);
-    -o-transition: all .4s cubic-bezier(.02, .01, .47, 1);
-    transition: all .4s cubic-bezier(.02, .01, .47, 1);
+    #bag_bg {
+      position: absolute;
+      max-width: 500px;
+      z-index: 999;
+    }
+
+    .on-drag {
+      opacity: 0.8;
+    }
+  }
+
+  #bag_fe {
+    position: absolute;
+    max-width: 500px;
+    z-index: 1101;
+    left: 232px;
+    bottom: -130px;
   }
 
   #doll {
     position: absolute;
     top: -350px;
     max-width: 400px;
-    z-index: 1001;
+    z-index: 1100;
     left: 400px;
+    cursor: pointer;
   }
 
   .glow {
@@ -105,7 +199,7 @@ html, body, .container-table {
 
 #scene_1 {
   width: 100%;
-  background: #faae7d;
+  background: #e7ac7e;
   position: relative;
 
   #girl_container {

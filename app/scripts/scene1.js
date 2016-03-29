@@ -49,10 +49,10 @@ new ScrollMagic.Scene({triggerElement: "#trigger", duration: 400, offset: 7000, 
     if (e.scrollPos < 5000) {
       $("#girl_on_swing").attr('src', 'images/girl_on_swing.png');
     }
-    else if (e.scrollPos > 5000 && e.scrollPos < 6000) {
+    else if (e.scrollPos > 5000 && e.scrollPos <= 6000) {
       $("#girl_on_swing").attr('src', 'images/girl_on_swing2.png');
     }
-    else if (e.scrollPos > 6000 && e.scrollPos < 7400) {
+    else if (e.scrollPos > 6000 && e.scrollPos <= 7400) {
       $("#girl_on_swing").attr('src', 'images/girl_on_swing3.png');
     }
     else if (e.scrollPos > 7400) {
