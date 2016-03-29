@@ -1,40 +1,58 @@
+@girlLeftOffset: 1100px;
+
 html, body, .container-table {
   height: 100%;
-  background-color: #c1e2b3;
+  width: 100%;
+
+  .container, .subcon {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 
   .container-table {
     display: table;
+    width: 100%;
 
     .vertical-center-row {
       display: table-cell;
+      width: 100%;
+      margin: 0 !important;
+      padding: 0 !important;
     }
   }
 }
 
 #scene_1 {
-  background: #c1e2b3;
+  width: 100%;
+  background: #faae7d;
   position: relative;
 
-  #start_spacer {
-    height: 400px;
-  }
-
   #girl_container {
+    position: relative;
+
+    #scene1_bg {
+      position: absolute;
+      background: url('../images/scene1_bg.png');
+      width: 100%;
+      height: 464px;
+    }
+
     #scene_1_background {
       position: absolute;
       width: 100%;
+      zoom: 0.9;
+      top: 100px;
 
       #left_swing_pole {
-        height: 500px;
+        height: 450px;
         width: 7px;
         position: absolute;
-        left: 385px;
+        left: @girlLeftOffset + 5px;
       }
 
       #girl {
         position: absolute;
-        left: 450px;
-        top: 16px;
+        left: @girlLeftOffset + 70px;
 
         #girl_on_swing {
           max-width: 200px;
@@ -62,7 +80,7 @@ html, body, .container-table {
 
         #right-swing-handle {
           width: 7px;
-          height: 300px;
+          height:  300px;
           background: #e3b988;
           position: absolute;
           transform: rotate(-30deg);
@@ -74,7 +92,7 @@ html, body, .container-table {
         height: 500px;
         width: 210px;
         position: absolute;
-        left: 380px;
+        left: @girlLeftOffset;
       }
     }
   }

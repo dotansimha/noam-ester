@@ -28,29 +28,42 @@
 <!-- endbower -->
 <!-- endbuild -->
 
-<div class="container container-table" style="height: 4000px">
+<div id="swing_trigger1" style="top: 0px; position: absolute;"></div>
+<div id="swing_trigger2" style="top: 0px; position: absolute;"></div>
+<div id="swing_trigger3" style="top: 0px; position: absolute;"></div>
+<div id="swing_trigger4" style="top: 0px; position: absolute;"></div>
+
+
+<div class="container container-table" style="height: 40000px">
   <div class="row vertical-center-row">
-    <div class="text-center col-md-12">
+    <div class="text-center col-md-12 subcon">
       <div id="scene_1">
-        <div id="start_spacer"></div>
-        <div id="swing_trigger1"></div>
         <div id="girl_container">
+          <div id="scene1_bg">
+          </div>
           <div id="scene_1_background">
             <img src="images/left_swing_pole.png" id="left_swing_pole">
             <div id="girl">
               <div style="position: relative;">
-                <div id="left-swing-handle"></div>
-                <div id="swing_base"></div>
-                <img src="images/girl_on_swing.png" id="girl_on_swing">
-                <div id="right-swing-handle"></div>
+                <div id="girlOnly" style="position: absolute">
+                  <img src="images/girl_on_swing.png" id="girl_on_swing">
+                </div>
+                <div id="swingOnly">
+                  <div id="left-swing-handle"></div>
+                  <div id="swing_base"></div>
+                  <div id="right-swing-handle"></div>
+                </div>
               </div>
             </div>
             <img src="images/swing.png" id="swing_bg">
           </div>
         </div>
-        <div id="swing_trigger2"></div>
       </div>
-    </div>
+
+
+
+
+      </div>
   </div>
 </div>
 
