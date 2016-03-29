@@ -1,8 +1,10 @@
 @girlLeftOffset: 1100px;
+@standOffset: 650px;
 
 html, body, .container-table {
   height: 100%;
   width: 100%;
+  background: #faae7d;
 
   .container, .subcon {
     margin: 0 !important;
@@ -19,6 +21,85 @@ html, body, .container-table {
       margin: 0 !important;
       padding: 0 !important;
     }
+  }
+}
+
+#scene_2 {
+  background: #faae7d;
+  width: 100%;
+  position: relative;
+  top: 400px;
+
+  #ghost {
+    position: absolute;
+    left: 800px;
+    opacity: 0;
+    zoom: 0.5;
+    z-index: 900;
+  }
+}
+
+#scene_3 {
+  top: @standOffset;
+  height: 100%;
+  position: relative;
+
+  #stand {
+    width: 100%;
+    height: 1000px;
+    background: #272525;
+    position: absolute;
+  }
+
+  #lamp {
+    position: absolute;
+    top: -260px;
+    max-width: 250px;
+    z-index: 1000;
+    left: 900px;
+  }
+
+  #box1, #box2, #box3 {
+    border: 3px solid #A9A9A9;
+    border-radius: 10px;
+    float: left;
+    height: 100px;
+    line-height: 90px;
+    margin: 0px 0px 30px 50px;
+    text-align: center;
+    width: 100px;
+    position: relative;
+    top: 0px;
+
+    /*
+    This cubic-bezier ease should approximate the jquery default 'swing' ease.
+    Courtesy of http://stackoverflow.com/questions/9245030/looking-for-a-swing-like-easing-expressible-both-with-jquery-and-css3
+    */
+    -webkit-transition: all .4s cubic-bezier(.02, .01, .47, 1);
+    -moz-transition: all .4s cubic-bezier(.02, .01, .47, 1);
+    -o-transition: all .4s cubic-bezier(.02, .01, .47, 1);
+    transition: all .4s cubic-bezier(.02, .01, .47, 1);
+  }
+
+  #doll {
+    position: absolute;
+    top: -350px;
+    max-width: 400px;
+    z-index: 1001;
+    left: 400px;
+  }
+
+  .glow {
+    -webkit-filter: drop-shadow(0px 0px 10px white);
+    filter: url(shadow.svg#drop-shadow);
+  }
+
+  #phone {
+    position: absolute;
+    top: -300px;
+    max-width: 400px;
+    z-index: 1000;
+    left: 50px;
   }
 }
 

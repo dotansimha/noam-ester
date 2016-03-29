@@ -11,7 +11,7 @@
 
   <!-- build:css styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css"/>
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -28,11 +28,7 @@
 <!-- endbower -->
 <!-- endbuild -->
 
-<div id="swing_trigger1" style="top: 0px; position: absolute;"></div>
-<div id="swing_trigger2" style="top: 0px; position: absolute;"></div>
-<div id="swing_trigger3" style="top: 0px; position: absolute;"></div>
-<div id="swing_trigger4" style="top: 0px; position: absolute;"></div>
-
+<div id="trigger"></div>
 
 <div class="container container-table" style="height: 40000px">
   <div class="row vertical-center-row">
@@ -60,17 +56,29 @@
         </div>
       </div>
 
-
-
-
+      <div id="scene_2">
+        <div id="ghost">
+          <img src="images/ghost.png" id="ghost_image">
+        </div>
       </div>
+
+      <div id="scene_3">
+        <img src="images/lamp.png" id="lamp">
+        <img src="images/doll.png" id="doll">
+        <img src="images/phone.png" id="phone">
+        <div id="stand">
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
 
 <!-- build:js scripts/main.js -->
 <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
 <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
-<script src="scripts/main.js"></script>
+<script src="scripts/scene1.js"></script>
+<script src="scripts/scene2.js"></script>
 <!-- endbuild -->
 </body>
 </html>

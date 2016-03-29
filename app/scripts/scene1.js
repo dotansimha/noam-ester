@@ -2,7 +2,7 @@ var controller = new ScrollMagic.Controller();
 
 //TweenLite.defaultOverwrite = false;
 
-new ScrollMagic.Scene({triggerElement: "#swing_trigger1", duration: 4000, triggerHook: 0})
+new ScrollMagic.Scene({triggerElement: "#trigger", duration: 4000, triggerHook: 0})
   .setTween(new TimelineMax()
     .insert(TweenMax.to("#girlOnly", 1, {
       rotation: 50,
@@ -23,7 +23,7 @@ new ScrollMagic.Scene({triggerElement: "#swing_trigger1", duration: 4000, trigge
   .addIndicators({name: "swing"})
   .addTo(controller);
 
-new ScrollMagic.Scene({triggerElement: "#swing_trigger2", duration: 1000, offset: 4000, triggerHook: 0})
+new ScrollMagic.Scene({triggerElement: "#trigger", duration: 1000, offset: 4000, triggerHook: 0})
   .setTween(new TimelineMax()
     .insert(TweenMax.to("#girlOnly", 1, {rotation: 390, transformOrigin: "left top"}))
     .insert(TweenMax.to("#swingOnly", 1, {rotation: 390, transformOrigin: "left top"}))
@@ -32,7 +32,7 @@ new ScrollMagic.Scene({triggerElement: "#swing_trigger2", duration: 1000, offset
   .addIndicators({name: "roll"})
   .addTo(controller);
 
-new ScrollMagic.Scene({triggerElement: "#swing_trigger3", duration: 2000, offset: 5000, triggerHook: 0})
+new ScrollMagic.Scene({triggerElement: "#trigger", duration: 2000, offset: 5000, triggerHook: 0})
   .setTween(new TimelineMax()
     .insert(TweenMax.to("#girl_on_swing", 1, {rotation: -150, transformOrigin: "center center"}))
     .insert(TweenMax.to("#girlOnly", 1, {x: -600, y: 200}))
@@ -41,7 +41,7 @@ new ScrollMagic.Scene({triggerElement: "#swing_trigger3", duration: 2000, offset
   .addIndicators({name: "fly"})
   .addTo(controller);
 
-new ScrollMagic.Scene({triggerElement: "#swing_trigger4", duration: 400, offset: 7000, triggerHook: 0})
+new ScrollMagic.Scene({triggerElement: "#trigger", duration: 400, offset: 7000, triggerHook: 0})
   .setTween(new TimelineMax()
     .insert(TweenMax.to("#girlOnly", 1, {marginLeft: -50, marginTop: 80}))
   )
@@ -64,4 +64,9 @@ new ScrollMagic.Scene({triggerElement: "#swing_trigger4", duration: 400, offset:
   })
   .setPin("#scene_1")
   .addIndicators({name: "fall"})
+  .addTo(controller);
+
+new ScrollMagic.Scene({triggerElement: "#trigger", duration: 500, offset: 7400, triggerHook: 0})
+  .setPin("#scene_1")
+  .addIndicators({name: "fly"})
   .addTo(controller);
