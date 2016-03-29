@@ -984,5 +984,37 @@
 
 var controller = new ScrollMagic.Controller();
 
-new ScrollMagic.Scene({ triggerElement: "#swing_trigger1", duration: 800, triggerHook: 0.2 }).setTween(new TimelineMax().add(TweenMax.to("#girl", 1, { rotation: 50, transformOrigin: "left top", repeat: 7, yoyo: true, ease: Linear.easeNone })).add(TweenMax.to("#girl", 1, { rotation: 450, transformOrigin: "left top", ease: Linear.easeNone }))).setPin("#girl_container").addIndicators({ name: "swing1" }).addTo(controller);
-//# sourceMappingURL=main.js.map
+//TweenLite.defaultOverwrite = false;
+
+new ScrollMagic.Scene({ triggerElement: "#swing_trigger1", duration: 4000, triggerHook: 0 }).setTween(new TimelineMax().insert(TweenMax.to("#girlOnly", 1, {
+  rotation: 50,
+  transformOrigin: "left top",
+  repeat: 7,
+  yoyo: true,
+  ease: Linear.easeNone
+})).insert(TweenMax.to("#swingOnly", 1, {
+  rotation: 50,
+  transformOrigin: "left top",
+  repeat: 7,
+  yoyo: true,
+  ease: Linear.easeNone
+}))).setPin("#scene_1").addIndicators({ name: "swing" }).addTo(controller);
+
+new ScrollMagic.Scene({ triggerElement: "#swing_trigger2", duration: 1000, offset: 4000, triggerHook: 0 }).setTween(new TimelineMax().insert(TweenMax.to("#girlOnly", 1, { rotation: 390, transformOrigin: "left top" })).insert(TweenMax.to("#swingOnly", 1, { rotation: 390, transformOrigin: "left top" }))).setPin("#scene_1").addIndicators({ name: "roll" }).addTo(controller);
+
+new ScrollMagic.Scene({ triggerElement: "#swing_trigger3", duration: 2000, offset: 5000, triggerHook: 0 }).setTween(new TimelineMax().insert(TweenMax.to("#girl_on_swing", 1, { rotation: -150, transformOrigin: "center center" })).insert(TweenMax.to("#girlOnly", 1, { x: -600, y: 200 }))).setPin("#scene_1").addIndicators({ name: "fly" }).addTo(controller);
+
+new ScrollMagic.Scene({ triggerElement: "#swing_trigger4", duration: 400, offset: 7000, triggerHook: 0 }).setTween(new TimelineMax().insert(TweenMax.to("#girlOnly", 1, { marginLeft: -50, marginTop: 80 }))).on("update", function (e) {
+  if (e.scrollPos < 5000) {
+    $("#girl_on_swing").attr('src', 'images/girl_on_swing.png');
+  } else if (e.scrollPos > 5000 && e.scrollPos < 6000) {
+    $("#girl_on_swing").attr('src', 'images/girl_on_swing2.png');
+  } else if (e.scrollPos > 6000 && e.scrollPos < 7400) {
+    $("#girl_on_swing").attr('src', 'images/girl_on_swing3.png');
+  } else if (e.scrollPos > 7400) {
+    $("#girl_on_swing").attr('src', 'images/girl_on_ground.png');
+  } else {
+    $("#girl_on_swing").attr('src', 'images/girl_on_swing.png');
+  }
+}).setPin("#scene_1").addIndicators({ name: "fall" }).addTo(controller);
+//# sourceMappingURL=scene1.js.map
