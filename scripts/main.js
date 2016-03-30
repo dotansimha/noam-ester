@@ -1025,20 +1025,18 @@ new ScrollMagic.Scene({ triggerElement: "#trigger", duration: 500, offset: 7400,
 
 new ScrollMagic.Scene({ triggerElement: "#trigger", duration: 300, offset: 7900, triggerHook: 0 }).setTween(new TimelineMax().insert(TweenMax.to("#ghost", 1, {
   opacity: 1,
-  x: 100,
+  x: '+=700',
   rotation: 10
 }))).setPin("#scene_2").addIndicators({ name: "ghost1" }).addTo(controller);
 
 new ScrollMagic.Scene({ triggerElement: "#trigger", duration: 400, offset: 8200, triggerHook: 0 }).setTween(new TimelineMax().add(TweenMax.to("#ghost_image", 1, {
   rotation: -20,
-  x: 100,
   zoom: 1.1
 })).add(TweenMax.to("#ghost_image", 1, {
   rotation: 30,
   zoom: 1.2
 })).add(TweenMax.to("#ghost_image", 1, {
   rotation: 0,
-  x: 130,
   zoom: 1.3
 }))).setPin("#scene_2").addIndicators({ name: "ghost2" }).addTo(controller);
 
