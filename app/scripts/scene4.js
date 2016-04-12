@@ -1,7 +1,7 @@
 new ScrollMagic.Scene({triggerElement: "#trigger", duration: 500, offset: 9400, triggerHook: 0})
   .setTween(new TimelineMax()
     .insert(TweenMax.to("#bag_container", 1, {
-      x: 800,
+      x: screenWidth - 450,
       y: 600,
       scale: 0.6
     }))
@@ -16,7 +16,7 @@ new ScrollMagic.Scene({triggerElement: "#trigger", duration: 500, offset: 9400, 
 
 new ScrollMagic.Scene({triggerElement: "#trigger", duration: 400, offset: 9400, triggerHook: 0})
   .on("update", function (e) {
-    if (e.scrollPos > 9400) {
+    if (e.scrollPos > 9400 + screenHeight) {
       if ($("#bag_bg").attr("src") != "images/empty_bag.png") {
         $("#bag_bg").attr("src", "images/empty_bag.png");
       }
@@ -30,32 +30,55 @@ new ScrollMagic.Scene({triggerElement: "#trigger", duration: 400, offset: 9400, 
 
 
 new ScrollMagic.Scene({triggerElement: "#trigger", duration: 3000, offset: 9800, triggerHook: 0})
-  .setTween(new TimelineMax()
-    .insert(TweenMax.to("#lamp", 1, {
-      opacity: 0
-    }))
-    .insert(TweenMax.to("#phone", 1, {
-      opacity: 0
-    }))
-    .insert(TweenMax.to("#room", 1, {
-      top: 0
-    }))
-    .insert(TweenMax.to("#overlay", 1, {
-      top: 0
-    }))
-    .insert(TweenMax.to("#doll", 1, {
-      top: -300
-    }))
-    .insert(TweenMax.to("#bag_container", 1, {
-      top: -300
-    }))
-    .add(new TimelineMax().insert(TweenMax.to("#overlay", 1, {
-        opacity: 1
+  .setTween(
+    new TimelineMax()
+      .insert(TweenMax.to("#lamp", 1, {
+        opacity: 0
       }))
-      .insert(TweenMax.to("#sun", 1, {
-        x: -300,
-        y: 200
-      })))
+      .insert(TweenMax.to("#phone", 1, {
+        opacity: 0
+      }))
+      .insert(TweenMax.to("#room", 1, {
+        top: 0
+      }))
+      .insert(TweenMax.to("#overlay", 1, {
+        top: 0
+      }))
+      .insert(TweenMax.to("#doll", 1, {
+        top: -300
+      }))
+      .insert(TweenMax.to("#bag_container", 1, {
+        top: -300
+      }))
+      .add(
+        new TimelineMax()
+          .insert(
+            new TimelineMax()
+              .insert(TweenMax.to("#overlay", 1, {
+                opacity: 1
+              }))
+              .insert(new TimelineMax().insert(TweenMax.to("#sun", 1, {
+                  x: -300,
+                  y: 200
+                })).insert(new TimelineMax()
+                .add(TweenMax.to("#line9", 0.5, {
+                  opacity: 1
+                }))
+                .add(TweenMax.to("#line9", 0.1, {
+                  opacity: 0
+                }))
+                .add(TweenMax.to("#line10", 0.1, {
+                  opacity: 1
+                }))
+                .add(TweenMax.to("#line10", 0.1, {
+                  opacity: 0
+                }))
+                .add(TweenMax.to("#line11", 0.1, {
+                  opacity: 1
+                })))
+              )
+          )
+      )
   )
   .setPin("#scene_3")
   .addIndicators({name: "moves"})
@@ -64,14 +87,14 @@ new ScrollMagic.Scene({triggerElement: "#trigger", duration: 3000, offset: 9800,
 
 new ScrollMagic.Scene({triggerElement: "#trigger", duration: 1000, offset: 12500, triggerHook: 0})
   .on("update", function (e) {
-    if (e.scrollPos >= 14000) {
+    if (e.scrollPos >= 14000 + screenHeight) {
       $("#vid")[0].play();
     }
     else {
       $("#vid")[0].pause();
     }
 
-      if (e.scrollPos >= 13000) {
+    if (e.scrollPos >= 13000 + screenHeight) {
 
       setInterval(function () {
         $("#g1").css('opacity', 1);
@@ -98,6 +121,24 @@ new ScrollMagic.Scene({triggerElement: "#trigger", duration: 1000, offset: 12500
           $("#g3").css('display', 'none')
         else
           $("#g3").css('display', 'block')
+      }, 1000);
+
+      setInterval(function () {
+        $("#g5").css('opacity', 1);
+
+        if ($("#g5").css('display') == "block")
+          $("#g5").css('display', 'none')
+        else
+          $("#g5").css('display', 'block')
+      }, 1000);
+
+      setInterval(function () {
+        $("#g4").css('opacity', 1);
+
+        if ($("#g4").css('display') == "block")
+          $("#g4").css('display', 'none')
+        else
+          $("#g4").css('display', 'block')
       }, 1000);
     }
   })

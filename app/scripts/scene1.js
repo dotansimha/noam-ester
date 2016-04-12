@@ -1,23 +1,62 @@
 var controller = new ScrollMagic.Controller();
-
-//TweenLite.defaultOverwrite = false;
+var screenHeight = document.documentElement.clientHeight;
+var screenWidth = document.documentElement.clientWidth;
 
 new ScrollMagic.Scene({triggerElement: "#trigger", duration: 4000, triggerHook: 0})
-  .setTween(new TimelineMax()
-    .insert(TweenMax.to("#girlOnly", 1, {
-      rotation: 50,
-      transformOrigin: "left top",
-      repeat: 7,
-      yoyo: true,
-      ease: Linear.easeNone
-    }))
-    .insert(TweenMax.to("#swingOnly", 1, {
-      rotation: 50,
-      transformOrigin: "left top",
-      repeat: 7,
-      yoyo: true,
-      ease: Linear.easeNone
-    }))
+  .setTween(
+    new TimelineMax().insert(
+      new TimelineMax()
+        .insert(TweenMax.to("#girlOnly", 1, {
+          rotation: 50,
+          transformOrigin: "left top",
+          repeat: 7,
+          yoyo: true,
+          ease: Linear.easeNone
+        }))
+        .insert(TweenMax.to("#swingOnly", 1, {
+          rotation: 50,
+          transformOrigin: "left top",
+          repeat: 7,
+          yoyo: true,
+          ease: Linear.easeNone
+        }))
+    )
+      .insert(
+        new TimelineMax()
+          .add(TweenMax.to("#line1", 1, {
+            opacity: 1
+          }))
+          .add(TweenMax.to("#line1", 0.5, {
+            opacity: 0
+          }))
+          .add(TweenMax.to("#line2", 0.5, {
+            opacity: 1
+          }))
+          .add(TweenMax.to("#line2", 0.75, {
+            opacity: 0
+          }))
+          .add(TweenMax.to("#line3", 0.75, {
+            opacity: 1
+          }))
+          .add(TweenMax.to("#line3", 0.75, {
+            opacity: 0
+          }))
+          .add(TweenMax.to("#line4", 0.75, {
+            opacity: 1
+          }))
+          .add(TweenMax.to("#line4", 0.75, {
+            opacity: 0
+          }))
+          .add(TweenMax.to("#line5", 0.75, {
+            opacity: 1
+          }))
+          .add(TweenMax.to("#line5", 0.75, {
+            opacity: 0
+          }))
+          .add(TweenMax.to("#line6", 0.75, {
+            opacity: 1
+          }))
+      )
   )
   .setPin("#scene_1")
   .addIndicators({name: "swing"})
@@ -46,16 +85,16 @@ new ScrollMagic.Scene({triggerElement: "#trigger", duration: 400, offset: 7000, 
     .insert(TweenMax.to("#girlOnly", 1, {marginLeft: -50, marginTop: 80}))
   )
   .on("update", function (e) {
-    if (e.scrollPos < 5000) {
+    if (e.scrollPos < 5000 + screenHeight) {
       $("#girl_on_swing").attr('src', 'images/girl_on_swing.png');
     }
-    else if (e.scrollPos > 5000 && e.scrollPos <= 6000) {
+    else if (e.scrollPos > 5000 + screenHeight && e.scrollPos <= 6000 + screenHeight) {
       $("#girl_on_swing").attr('src', 'images/girl_on_swing2.png');
     }
-    else if (e.scrollPos > 6000 && e.scrollPos <= 7400) {
+    else if (e.scrollPos > 6000 + screenHeight && e.scrollPos <= 7400 + screenHeight) {
       $("#girl_on_swing").attr('src', 'images/girl_on_swing3.png');
     }
-    else if (e.scrollPos > 7400) {
+    else if (e.scrollPos > 7400 + screenHeight) {
       $("#girl_on_swing").attr('src', 'images/girl_on_ground.png');
     }
     else {

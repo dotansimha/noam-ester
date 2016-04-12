@@ -1,17 +1,40 @@
+function hover(e) {
+  $(e).attr('src', '/images/doll_hover.png');
+}
+
+function unhover(e) {
+  $(e).attr('src', '/images/doll.png');
+}
+
 new ScrollMagic.Scene({triggerElement: "#trigger", duration: 300, offset: 7900, triggerHook: 0})
   .setTween(new TimelineMax()
-    .insert(TweenMax.to("#ghost", 1, {
-      opacity: 1,
-      x: '+=700',
-      rotation: 10
-    }))
+    .insert(
+      new TimelineMax().insert(TweenMax.to("#ghost", 1, {
+        opacity: 1,
+        x: '+=700',
+        rotation: 10
+      }))
+    )
+    .insert(
+      new TimelineMax()
+        .add(TweenMax.to("#line7", 1, {
+          opacity: 1
+        }))
+    )
   )
   .setPin("#scene_2")
   .addIndicators({name: "ghost1"})
   .addTo(controller);
 
+
 new ScrollMagic.Scene({triggerElement: "#trigger", duration: 400, offset: 8200, triggerHook: 0})
   .setTween(new TimelineMax()
+    .add(TweenMax.to("#line7", 1, {
+      opacity: 0
+    }))
+    .add(TweenMax.to("#line8", 1, {
+      opacity: 1
+    }))
     .add(TweenMax.to("#ghost_image", 1, {
       rotation: -20,
       zoom: 1.1
@@ -23,6 +46,9 @@ new ScrollMagic.Scene({triggerElement: "#trigger", duration: 400, offset: 8200, 
     .add(TweenMax.to("#ghost_image", 1, {
       rotation: 0,
       zoom: 1.3
+    }))
+    .add(TweenMax.to("#line8", 1, {
+      opacity: 0
     }))
   )
   .setPin("#scene_2")
@@ -46,8 +72,8 @@ var dollDragged = false;
 
 $(window).scroll(function () {
   if (!dollDragged) {
-    if ($(window).scrollTop() >= 8940) {
-      $(window).scrollTop(8940);
+    if ($(window).scrollTop() >= 8940 + screenHeight) {
+      $(window).scrollTop(8940 + screenHeight);
     }
   }
   else {
@@ -80,6 +106,7 @@ new ScrollMagic.Scene({triggerElement: "#trigger", duration: 500, offset: 8900, 
         $("#doll").attr("src", "images/doll2.png").hide();
         $("#bag_bg").attr("src", "images/doll_in_bag.png");
         $("#bag_fe").hide();
+        $(window).scrollTop($(window).scrollTop() + 450);
       }
     });
   })

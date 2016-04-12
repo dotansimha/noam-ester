@@ -1,9 +1,99 @@
 @girlLeftOffset: 800px;
 @standOffset: 650px;
 
-html, body, .container-table {
+@font-face {
+  font-family: 'Conv_ArbelHagildaRegular';
+  src: url('/fonts/ArbelHagildaRegular.eot');
+  src: local('☺'), url('/fonts/ArbelHagildaRegular.woff') format('woff'), url('fonts/ArbelHagildaRegular.ttf') format('truetype'), url('fonts/ArbelHagildaRegular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.vertical-top {
+  vertical-align: top;
+}
+
+.bigText {
+  font-size: 60px;
+}
+
+.mediumText {
+  font-size: 40px;
+}
+
+.inline {
+  display: inline-block;
+}
+
+#text-container {
+  display: inline-block;
+  margin-top: 200px;
+}
+
+.hf {
+  direction: rtl;
+  font-family: 'Conv_ArbelHagildaRegular', Sans-Serif;
+}
+
+#scene1_text {
+  width: 300px;
+  left: 300px;
+  position: absolute;
+  top: 70px;
+  font-size: 18px;
+}
+
+#line2, #line3 ,#line4, #line5, #line6, #line7, #line8, #line10, #line11 {
+  opacity: 0;
+}
+
+#sun_text {
+  background: none;
+  width: 300px;
+  position: absolute;
+  font-size:18px;
+  right: 70px;
+  top: 200px;
+}
+
+#scene2_text {
+  background: none;
+  width: 300px;
+  position: absolute;
+  top: 100px;
+  font-size:18px;
+}
+
+.white {
+  color: white;
+}
+
+.right-align {
+  text-align: right;
+}
+
+#peek {
+  left: 10%;
+  position: absolute;
+  top: 0;
+}
+
+#start {
   height: 100%;
   width: 100%;
+  background: #EFF1BC;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+}
+
+#trigger {
+  position: absolute;
+}
+
+html, body, .container-table {
+  width: 100%;
+  height: 100%; margin: 0px; padding: 0px;
   background: #e7ac7e;
 
   .container, .subcon {
@@ -58,6 +148,21 @@ html, body, .container-table {
     left: 500px;
     max-width: 150px;
   }
+
+  #g4 {
+    opacity: 0;
+    position: absolute;
+    right: 300px;
+    top: 250px;
+    max-width: 80px;
+  }
+
+  #g5 {
+    opacity: 0;
+    position: absolute;
+    right: 50px;
+    max-width: 100px;
+  }
 }
 
 #scene_2 {
@@ -110,10 +215,10 @@ html, body, .container-table {
 
     #outside {
       background: #F9DEA2;
-      width: 400px;
-      left: 904px;
+      width: 440px;
+      right: 0;
       top: 123px;
-      height: 300px;
+      height: 340px;
       position: absolute;
 
       #sun {
@@ -128,7 +233,7 @@ html, body, .container-table {
 
     #bed {
       position: absolute;
-      left: 800px;
+      right: 0;
       top: 100px;
     }
   }
@@ -170,8 +275,6 @@ html, body, .container-table {
     position: absolute;
     max-width: 500px;
     z-index: 1101;
-    left: 232px;
-    bottom: -130px;
   }
 
   #doll {
