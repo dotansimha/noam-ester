@@ -1,5 +1,30 @@
+function videoDone() {
+  lockOn = $(window).scrollTop();
+
+  $("#replay").css({top: $(window).scrollTop() + "px"});
+  $("#replay").fadeIn(500, function () {
+    setTimeout(function () {
+      $("#wink").attr("src", "images/wink2.png");
+      setTimeout(function () {
+        $("#wink").attr("src", "images/wink1.png");
+      }, 350);
+
+      setTimeout(function () {
+        $("#replay_con").show();
+      }, 1000);
+    }, 300);
+  });
+}
+
+function replay() {
+  window.location.href = window.location.href + "?cache=" + Date.now();
+}
+
 new ScrollMagic.Scene({triggerElement: "#trigger", duration: 500, offset: 9400, triggerHook: 0})
   .setTween(new TimelineMax()
+    .insert(TweenMax.to("#keepScroll", 0.01, {
+      opacity: 0
+    }))
     .insert(TweenMax.to("#bag_container", 1, {
       x: screenWidth - 450,
       y: 600,
@@ -84,18 +109,13 @@ new ScrollMagic.Scene({triggerElement: "#trigger", duration: 3000, offset: 9800,
   .addIndicators({name: "moves"})
   .addTo(controller);
 
-
 new ScrollMagic.Scene({triggerElement: "#trigger", duration: 1000, offset: 12500, triggerHook: 0})
   .on("update", function (e) {
     if (e.scrollPos >= 14000 + screenHeight) {
       $("#vid")[0].play();
     }
-    else {
-      $("#vid")[0].pause();
-    }
 
     if (e.scrollPos >= 13000 + screenHeight) {
-
       setInterval(function () {
         $("#g1").css('opacity', 1);
 

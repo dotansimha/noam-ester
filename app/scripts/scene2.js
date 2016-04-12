@@ -3,7 +3,7 @@ function hover(e) {
 }
 
 function unhover(e) {
-  $(e).attr('src', 'images/doll.png');
+  $(e).attr('src', 'images/doll2.png');
 }
 
 new ScrollMagic.Scene({triggerElement: "#trigger", duration: 300, offset: 7900, triggerHook: 0})
@@ -70,7 +70,13 @@ new ScrollMagic.Scene({triggerElement: "#trigger", duration: 300, offset: 8600, 
 
 var dollDragged = false;
 
+var lockOn;
+
 $(window).scroll(function () {
+  if (lockOn) {
+    $(window).scrollTop(lockOn);
+  }
+  
   if (!dollDragged) {
     if ($(window).scrollTop() >= 8940 + screenHeight) {
       $(window).scrollTop(8940 + screenHeight);
@@ -106,6 +112,7 @@ new ScrollMagic.Scene({triggerElement: "#trigger", duration: 500, offset: 8900, 
         $("#doll").attr("src", "images/doll2.png").hide();
         $("#bag_bg").attr("src", "images/doll_in_bag.png");
         $("#bag_fe").hide();
+        $("#keepScroll").show();
         $(window).scrollTop($(window).scrollTop() + 450);
       }
     });

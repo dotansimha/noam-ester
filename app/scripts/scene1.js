@@ -1,6 +1,8 @@
 var controller = new ScrollMagic.Controller();
 var screenHeight = document.documentElement.clientHeight;
 var screenWidth = document.documentElement.clientWidth;
+var bgMusic = $("#bg_audio")[0];
+bgMusic.play();
 
 new ScrollMagic.Scene({triggerElement: "#trigger", duration: 4000, triggerHook: 0})
   .setTween(
