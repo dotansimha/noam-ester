@@ -374,11 +374,11 @@ new ScrollMagic.Scene({ triggerElement: "#trigger", duration: 500, offset: 7400,
 'use strict';
 
 function hover(e) {
-  $(e).attr('src', '/images/doll_hover.png');
+  $(e).attr('src', 'images/doll_hover.png');
 }
 
 function unhover(e) {
-  $(e).attr('src', '/images/doll.png');
+  $(e).attr('src', 'images/doll.png');
 }
 
 new ScrollMagic.Scene({ triggerElement: "#trigger", duration: 300, offset: 7900, triggerHook: 0 }).setTween(new TimelineMax().insert(new TimelineMax().insert(TweenMax.to("#ghost", 1, {
