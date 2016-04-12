@@ -16,15 +16,31 @@
 <body>
 <script src="scripts/vendor.js"></script>
 
+<div id="start">
+  <img src="/images/peek.png" id="peek">
+  <div id="text-container">
+    <div class="hf bigText inline">מה קרה לאסתר?</div><br >
+    <img src="/images/arrow.png" class="inline">
+    <div class="hf mediumText inline vertical-top">גללו מטה וגלו...</div>
+  </div>
+</div>
+
 <div id="trigger"></div>
 
 <div class="container container-table" >
   <div class="row vertical-center-row">
     <div class="text-center col-md-12 subcon">
-
       <div id="scene_1">
         <div id="girl_container">
           <div id="scene1_bg">
+            <div id="scene1_text">
+              <div class="hf white right-align" id="line1">היֹה היתה פעם ילדה קטנה ושמה אסתר</div>
+              <div class="hf white right-align" id="line2">אסתר אהבה מאוד להתנדנד בנדנדה</div>
+              <div class="hf white right-align" id="line3">מעלה ומטה...</div>
+              <div class="hf white right-align" id="line4">מטה ומעלה...</div>
+              <div class="hf white right-align" id="line5">עד שיום אחד,</div>
+              <div class="hf white right-align" id="line6">היא התנדנדה מהר מדי...</div>
+            </div>
           </div>
           <div id="scene_1_background">
             <img src="images/left_swing_pole.png" id="left_swing_pole">
@@ -46,6 +62,10 @@
       </div>
 
       <div id="scene_2">
+        <div id="scene2_text">
+          <div class="hf white right-align" id="line7">נשמתה טיילה באוויר</div>
+          <div class="hf white right-align" id="line8">עד שנתקלה בבובה מוזרה למראה<br>בשוק הפשפשים</div>
+        </div>
         <div id="ghost">
           <img src="images/ghost.png" id="ghost_image">
         </div>
@@ -53,12 +73,12 @@
 
       <div id="scene_3">
         <img src="images/lamp.png" id="lamp">
-        <img src="images/doll.png" id="doll">
+        <img src="images/doll.png" id="doll" onmouseover="hover(this);" onmouseout="unhover(this);">
         <img src="images/phone.png" id="phone">
         <div id="bag_container">
           <img src="images/bag_bg.png" id="bag_bg">
+          <img src="images/bag_fe.png" id="bag_fe">
         </div>
-        <img src="images/bag_fe.png" id="bag_fe">
         <div id="stand">
         </div>
 
@@ -70,6 +90,11 @@
           <img src="images/drawer.png" id="drawer">
         </div>
         <div id="overlay">
+          <div id="sun_text">
+            <div class="hf white right-align" id="line9">אסתר הגיעה לביתה החדש</div>
+            <div class="hf white right-align" id="line10">ועמדה על השידה דוממת ושקטה</div>
+            <div class="hf white right-align" id="line11">עד שירד הלילה...</div>
+          </div>
         </div>
       </div>
 
@@ -78,6 +103,8 @@
           <img src="images/splash.png" id="g1">
           <img src="images/splash.png" id="g2">
           <img src="images/splash.png" id="g3">
+          <img src="images/splash.png" id="g4">
+          <img src="images/splash.png" id="g5">
         </div>
       </div>
 
