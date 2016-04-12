@@ -1,9 +1,9 @@
 function hover(e) {
-  $(e).attr('src', '/images/doll_hover.png');
+  $(e).attr('src', 'images/doll_hover.png');
 }
 
 function unhover(e) {
-  $(e).attr('src', '/images/doll.png');
+  $(e).attr('src', 'images/doll.png');
 }
 
 new ScrollMagic.Scene({triggerElement: "#trigger", duration: 300, offset: 7900, triggerHook: 0})
